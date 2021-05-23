@@ -1,0 +1,50 @@
+.movies-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 95%;
+  margin: 0 auto;
+  grid-column-gap: 5px;
+  grid-row-gap: 15px;
+}
+.showcase {
+  min-height: 500px;
+
+  max-width: 95%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.showcase-form {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  margin: 2rem auto;
+}
+
+.showcase-form .showcase-input {
+  min-width: 75%;
+  margin: 0.5rem auto;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid brown;
+  text-align: center;
+  color: #fff;
+  padding: 0.5rem 0;
+}
+.showcase-form .showcase-input::placeholder {
+  color: #fff;
+}
+.showcase-form .loginBtn {
+  margin: 1rem auto;
+}
+@media (max-width: 1080px) {
+  .movies-container {
+    grid-template-columns: 1fr;
+  }
+}
+@media (min-width: 1081px) and (max-width: 1440px) {
+  .movies-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

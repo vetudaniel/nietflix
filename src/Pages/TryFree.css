@@ -1,0 +1,44 @@
+.tryFreeWrap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 1rem;
+  position: absolute;
+  top: 12%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.tryFreeCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem 0;
+  border: 1px solid rgba(165, 42, 42, 0.411);
+  width: 95%;
+  margin: 3rem auto;
+  padding: 1.5rem 0;
+}
+table {
+  width: 100%;
+  margin: 2rem;
+}
+
+td {
+  padding: 1rem;
+  border-bottom: 0.01rem solid rgba(165, 42, 42, 0.411);
+}
+.loginBtn {
+  cursor: pointer;
+}
+.price {
+  width: 100%;
+  padding: 1rem 0;
+  margin: 1rem 0;
+  border-bottom: 0.01rem solid rgba(165, 42, 42, 0.411);
+}
+@media (max-width: 1080px) {
+  .tryFreeWrap {
+    grid-template-columns: 1fr;
+  }
+}
