@@ -16,17 +16,15 @@ export default function Movie() {
 
     const handleSearch = async () => {
         if(userInput !== ''){
-            const data = await fetch(`https://www.omdbapi.com/?apikey=86d01909&s=${userInput}&page=1`)
-            const jsonResponse = await data.json()
-            const usableData = jsonResponse.Search
-            setMovies(usableData)
-        }else{
-            return
+            const response = await fetch(`https://www.omdbapi.com/?apikey=86d01909&s=${userInput}&page=1`)
+            if(response.ok){
+                const jsonResponse = await response.json()
+                const usableData = jsonResponse.Search
+                setMovies(usableData)
+           }
         }
-     
     }
 
- 
     return (
         <>
          <div className="showcase">
@@ -37,19 +35,20 @@ export default function Movie() {
             </div>
         </div>
         <div className="movies-container">
-            {movies.map(movie => {
-                return(
-                    
-                        <Link to={`login/${movie.imdbID}`}>
-                            <div className="movieCard" key={movie.imdbID}>
-                                <img className="moviePoster" src={movie.Poster} alt={movie.Title}/>
-                                <h3>{movie.Title}</h3>
-                            </div>
-                        </Link>
-                )
-            })}
+            {
+                movies && movies.map(movie => {
+                    return(
+                        
+                            <Link to={`login/${movie.imdbID}`} key={movie.imdbID}>
+                                <div className="movieCard">
+                                    <img className="moviePoster" src={movie.Poster} alt={movie.Title}/>
+                                    <h3>{movie.Title}</h3>
+                                </div>
+                            </Link>
+                    )
+                })
+            }
          </div>
-        
         </>
     )
 }

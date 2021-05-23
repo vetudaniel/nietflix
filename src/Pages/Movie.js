@@ -11,15 +11,17 @@ export default function Movie({match}) {
     useEffect(() => {
         async function fetchMovie(){
             const response = await fetch(`https://www.omdbapi.com/?apikey=86d01909&i=${match.params.id}`)
-            const jsonResponse = await response.json()
-            setMovie(jsonResponse)
+            if(response.ok){
+                const jsonResponse = await response.json()
+                setMovie(jsonResponse)
+            }
         }
         fetchMovie()
     },[match.params.id])
 
     return (
         <div className="movieWrap" key={match.params.id}>
-            <div className="movie" key={match.params.id}>
+            <div className="movie">
                 <img src={movie.Poster} alt={movie.Title}/>
                 <p>In order to watch <span style={spanStyle}>{movie.Title}</span> you need to Log In.</p>
                 <div className="loginForm">
