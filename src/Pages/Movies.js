@@ -16,7 +16,7 @@ export default function Movie() {
 
     const handleSearch = async () => {
         if(userInput !== ''){
-            const data = await fetch(`http://www.omdbapi.com/?apikey=86d01909&s=${userInput}&page=1`)
+            const data = await fetch(`https://www.omdbapi.com/?apikey=86d01909&s=${userInput}&page=1`)
             const jsonResponse = await data.json()
             const usableData = jsonResponse.Search
             setMovies(usableData)

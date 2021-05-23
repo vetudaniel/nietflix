@@ -10,7 +10,7 @@ export default function Movie({match}) {
 
     useEffect(() => {
         async function fetchMovie(){
-            const response = await fetch(`http://www.omdbapi.com/?apikey=86d01909&i=${match.params.id}`)
+            const response = await fetch(`https://www.omdbapi.com/?apikey=86d01909&i=${match.params.id}`)
             const jsonResponse = await response.json()
             setMovie(jsonResponse)
         }
